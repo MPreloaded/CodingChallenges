@@ -1,21 +1,23 @@
-let angle = 0;
+let angle = Math.PI / 4;
 let cubes = [];
 
 function setup() {
   let canvas = createCanvas(400, 400, WEBGL);
   cubes.push(new Cube(0, 0, 0, 200));
+
+  fill(255, 255, 255);
+  noStroke();
+  ambientLight(150);
+  directionalLight(255, 255, 255, createVector(-1, -1, -1));
 }
 
 function draw() {
   background(50);
-  stroke(255);
-  fill(255, 255, 255);
-  // directionalLight(0, 0, 0, createVector(1, 1, 0));
-  // ambientMaterial(250);
+  // ambientMaterial(130);
 
   rotateX(angle);
-  rotateY(angle * 0.4);
-  rotateZ(angle * 0.1);
+  rotateY(angle);
+  rotateZ(angle);
 
   for (let i = 0; i < cubes.length; i++) {
     cubes[i].show();
